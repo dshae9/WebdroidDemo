@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Selection</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #characterContainer {
+            display: flex;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .character {
+            width: 50%;
+            height: 100%;
+            background-color: #333;
+            border: 4px solid transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .character:nth-child(1) {
+            clip-path: polygon(0 0, 100% 0, 0% 100%);
+        }
+
+        .character:nth-child(2) {
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        .character:hover {
+            animation: blinkBorder 1s infinite;
+        }
+
+        @keyframes blinkBorder {
+            0% {
+                border-color: #ff0;
+            }
+            50% {
+                border-color: #f00;
+            }
+            100% {
+                border-color: #ff0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="characterContainer">
+    <div class="character" ontouchstart="selectCharacter(1)">
+        <!-- Character 1 content goes here -->
+        Character 1
+    </div>
+    <div class="character" ontouchstart="selectCharacter(2)">
+        <!-- Character 2 content goes here -->
+        Character 2
+    </div>
+</div>
+
+<script>
+    function selectCharacter(characterId) {
+        alert('Selected Character ' + characterId);
+        // Add further actions based on the selected character, e.g., start the game
+    }
+</script>
+
+</body>
+</html>
